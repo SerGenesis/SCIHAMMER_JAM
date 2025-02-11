@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 
 func _on_enemy_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D and door_is_kicked:
+		Globals.enemy_start()
 		anim.play("door_kick")
 		door_is_kicked = false
 		await get_tree().create_timer(0.8).timeout

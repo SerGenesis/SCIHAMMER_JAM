@@ -42,6 +42,8 @@ func _physics_process(delta: float) -> void:
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 	move_and_slide()
 	
+func _process(delta: float) -> void:
+	Globals.player_pos = self.position
 func check_wall_run():
 	if right_wall_cast.is_colliding() and Input.is_action_pressed("right"):
 		if is_jumping == false:

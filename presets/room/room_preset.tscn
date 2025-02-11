@@ -115,6 +115,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.156932, 1.69496, 5.22862)
 shape = SubResource("BoxShape3D_mqmgp")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="10"]
+visible = false
 stream = ExtResource("24_msyb1")
 
 [connection signal="body_entered" from="enemy_trigger" to="." method="_on_enemy_trigger_body_entered"]

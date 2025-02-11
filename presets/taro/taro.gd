@@ -1,4 +1,5 @@
 extends Area3D
+class_name Taro
 
 var speed = 30
 var direction: Vector3 = Vector3.ZERO
@@ -18,8 +19,3 @@ func _physics_process(delta: float) -> void:
 	#speed = 30
 	#await get_tree().create_timer(4).timeout
 	#queue_free()
-
-
-func _on_body_entered(body: Node3D) -> void:
-	if body is not CharacterBody3D:
-		speed = 0

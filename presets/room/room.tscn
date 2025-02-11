@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bua36wsst8pad"]
+[gd_scene load_steps=13 format=3 uid="uid://bua36wsst8pad"]
 
 [ext_resource type="PackedScene" uid="uid://bbgq6u2ehyi0j" path="res://presets/room/room_preset.tscn" id="2_5gj2i"]
 [ext_resource type="PackedScene" uid="uid://dyuw5uq7ncnvo" path="res://presets/player/player.tscn" id="2_is17h"]
+[ext_resource type="PackedScene" uid="uid://de2wdxvee7ibu" path="res://presets/enemys/enemy_1/enemy_1.tscn" id="3_rdwms"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4mer"]
 size = Vector3(2.20453, 1.30957, 2.23755)
@@ -98,3 +99,6 @@ light_energy = 3.365
 light_specular = 0.09
 
 [node name="room" parent="." instance=ExtResource("2_5gj2i")]
+
+[node name="enemy_1" parent="room" instance=ExtResource("3_rdwms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.922)

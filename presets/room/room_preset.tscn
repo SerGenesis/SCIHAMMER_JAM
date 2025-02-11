@@ -1,0 +1,120 @@
+[gd_scene load_steps=32 format=3 uid="uid://bbgq6u2ehyi0j"]
+
+[ext_resource type="PackedScene" uid="uid://b6pn2r5nadxr6" path="res://presets/room/room.glb" id="1_spmjg"]
+[ext_resource type="Texture2D" uid="uid://cc6i0kp68ky6q" path="res://presets/room/textures/box_BaseColor.png" id="2_4xfcw"]
+[ext_resource type="Script" path="res://presets/room/room_preset.gd" id="2_yqoce"]
+[ext_resource type="Texture2D" uid="uid://cphkl0a05sui7" path="res://presets/room/textures/box_Normal.png" id="3_kfcid"]
+[ext_resource type="Texture2D" uid="uid://c62qp6t2oo41b" path="res://presets/room/textures/box_Roughness.png" id="4_m5trv"]
+[ext_resource type="Texture2D" uid="uid://2cvv4quqxqma" path="res://presets/room/textures/divan_okno_shit_kompa_BaseColor.png" id="5_6mkxu"]
+[ext_resource type="Texture2D" uid="uid://dlr5dt6sqtn47" path="res://presets/room/textures/divan_okno_shit_kompa_Metallic.png" id="6_3fxt6"]
+[ext_resource type="Texture2D" uid="uid://df335ugd2kpal" path="res://presets/room/textures/divan_okno_shit_kompa_Normal.png" id="7_owvxy"]
+[ext_resource type="Texture2D" uid="uid://u8a05x6gnj1" path="res://presets/room/textures/divan_okno_shit_kompa_Roughness.png" id="8_61h6b"]
+[ext_resource type="Texture2D" uid="uid://bm5dea4djq2td" path="res://presets/room/textures/table_shitki_BaseColor.png" id="9_rerii"]
+[ext_resource type="Texture2D" uid="uid://cax7533ddj3tp" path="res://presets/room/textures/table_shitki_Emission.png" id="10_p55yd"]
+[ext_resource type="Texture2D" uid="uid://cdevcyyewy0n0" path="res://presets/room/textures/table_shitki_Metallic.png" id="11_jglxw"]
+[ext_resource type="Texture2D" uid="uid://jgn3hy7q262g" path="res://presets/room/textures/table_shitki_Normal.png" id="12_uxaqe"]
+[ext_resource type="Texture2D" uid="uid://cxdru1pljkgjt" path="res://presets/room/textures/polki_knigi_bulick_BaseColor.png" id="14_sevbf"]
+[ext_resource type="Texture2D" uid="uid://c04xvxjy5lhe4" path="res://presets/room/textures/polki_knigi_bulick_Emission.png" id="15_jrfbe"]
+[ext_resource type="Texture2D" uid="uid://bqir01xnnlr3w" path="res://presets/room/textures/polki_knigi_bulick_Metallic.png" id="16_63wqm"]
+[ext_resource type="Texture2D" uid="uid://kytv4nd4up45" path="res://presets/room/textures/polki_knigi_bulick_Normal.png" id="17_rkqlb"]
+[ext_resource type="Texture2D" uid="uid://bt7w3qhit30nw" path="res://presets/room/textures/polki_knigi_bulick_Roughness.png" id="18_sliei"]
+[ext_resource type="Texture2D" uid="uid://buggktv8byp2h" path="res://presets/room/textures/billboards_BaseColor.png" id="19_6i2dc"]
+[ext_resource type="Texture2D" uid="uid://ci6t6jewlxsi4" path="res://presets/room/textures/door_BaseColor.png" id="20_s0ed5"]
+[ext_resource type="Texture2D" uid="uid://cbdfx6q8lg7y4" path="res://presets/room/textures/door_Metallic.png" id="21_s8b88"]
+[ext_resource type="Texture2D" uid="uid://csgwtmisy4bm7" path="res://presets/room/textures/door_Normal.png" id="22_w5n25"]
+[ext_resource type="Texture2D" uid="uid://d01o20ceffxns" path="res://presets/room/textures/door_Roughness.png" id="23_73ks7"]
+[ext_resource type="AudioStream" uid="uid://c7vjscn3ksw5m" path="res://presets/room/1-VEED.mp3" id="24_msyb1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hx2vp"]
+albedo_texture = ExtResource("2_4xfcw")
+roughness_texture = ExtResource("4_m5trv")
+normal_enabled = true
+normal_texture = ExtResource("3_kfcid")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fb7t"]
+albedo_texture = ExtResource("5_6mkxu")
+metallic = 1.0
+metallic_texture = ExtResource("6_3fxt6")
+roughness_texture = ExtResource("8_61h6b")
+normal_enabled = true
+normal_texture = ExtResource("7_owvxy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmp45"]
+albedo_texture = ExtResource("9_rerii")
+metallic = 1.0
+metallic_texture = ExtResource("11_jglxw")
+emission_enabled = true
+emission_texture = ExtResource("10_p55yd")
+normal_enabled = true
+normal_texture = ExtResource("12_uxaqe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qy25e"]
+albedo_texture = ExtResource("14_sevbf")
+metallic = 1.0
+metallic_texture = ExtResource("16_63wqm")
+roughness_texture = ExtResource("18_sliei")
+emission_enabled = true
+emission_texture = ExtResource("15_jrfbe")
+normal_enabled = true
+normal_texture = ExtResource("17_rkqlb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1axw"]
+albedo_texture = ExtResource("19_6i2dc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v1ck"]
+albedo_texture = ExtResource("20_s0ed5")
+metallic = 1.0
+metallic_texture = ExtResource("21_s8b88")
+roughness_texture = ExtResource("23_73ks7")
+normal_enabled = true
+normal_texture = ExtResource("22_w5n25")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mqmgp"]
+size = Vector3(5.20837, 4.25085, 2.79199)
+
+[node name="room" instance=ExtResource("1_spmjg")]
+script = ExtResource("2_yqoce")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/2/rotation = Quaternion(0.941496, -0.0746829, 0.00408405, 0.328621)
+bones/3/rotation = Quaternion(0.0242722, -0.000590559, -0.0671873, 0.997445)
+bones/10/rotation = Quaternion(-0.0124774, 5.69975e-05, -0.00885343, 0.999883)
+bones/11/rotation = Quaternion(0.883549, -0.0196712, -0.460687, 0.0819864)
+bones/12/rotation = Quaternion(-0.0123323, 4.43455e-09, -0.0197611, 0.999729)
+bones/14/rotation = Quaternion(0.882509, 0.0530494, -0.463832, -0.056779)
+
+[node name="Plane_001" parent="." index="1"]
+visible = false
+
+[node name="Plane" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_hx2vp")
+
+[node name="Cube_007" parent="." index="3"]
+material_override = SubResource("StandardMaterial3D_1fb7t")
+
+[node name="Cube_019" parent="." index="4"]
+material_override = SubResource("StandardMaterial3D_qmp45")
+
+[node name="Cube_011" parent="." index="5"]
+material_override = SubResource("StandardMaterial3D_qy25e")
+
+[node name="Plane_005" parent="." index="6"]
+material_override = SubResource("StandardMaterial3D_v1axw")
+
+[node name="Skeleton3D" parent="Armature_001" index="0"]
+bones/0/position = Vector3(0, -2.40854, 0)
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 1.05879e-22, 1)
+
+[node name="door" parent="Armature_001/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_6v1ck")
+
+[node name="enemy_trigger" type="Area3D" parent="." index="9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_trigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.156932, 1.69496, 5.22862)
+shape = SubResource("BoxShape3D_mqmgp")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="10"]
+stream = ExtResource("24_msyb1")
+
+[connection signal="body_entered" from="enemy_trigger" to="." method="_on_enemy_trigger_body_entered"]

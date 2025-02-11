@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://5exy0v0ynq64"]
+
+[ext_resource type="Script" path="res://presets/taro/taro.gd" id="1_n73pa"]
+[ext_resource type="PackedScene" uid="uid://daiag03rc40ff" path="res://presets/taro/taro_mesh.tscn" id="2_x7p23"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aspyt"]
+
+[node name="Taro" type="Area3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_n73pa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-8.61704e-09, 0, -0.134467, 0, 0.0292016, 0, 0.197135, 0, -5.87774e-09, 0, 0, 0)
+shape = SubResource("BoxShape3D_aspyt")
+
+[node name="taro" parent="." instance=ExtResource("2_x7p23")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

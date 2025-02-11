@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bbgq6u2ehyi0j" path="res://presets/room/room_preset.tscn" id="2_5gj2i"]
 [ext_resource type="PackedScene" uid="uid://dyuw5uq7ncnvo" path="res://presets/player/player.tscn" id="2_is17h"]
-[ext_resource type="PackedScene" uid="uid://de2wdxvee7ibu" path="res://presets/enemys/enemy_1/enemy_1.tscn" id="3_rdwms"]
+[ext_resource type="PackedScene" uid="uid://cm1rxdsmg3cpe" path="res://presets/enemys/enemy_1/enemy_1.tscn" id="3_rdwms"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4mer"]
 size = Vector3(2.20453, 1.30957, 2.23755)

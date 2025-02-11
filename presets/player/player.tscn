@@ -55,6 +55,6 @@ libraries = {
 "": SubResource("AnimationLibrary_fa0vt")
 }
 autoplay = "room_anim-start"
-speed_scale = 10.0
+speed_scale = 1000.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

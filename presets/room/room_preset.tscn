@@ -76,12 +76,29 @@ size = Vector3(5.20837, 4.25085, 2.79199)
 script = ExtResource("2_yqoce")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(0.999093, 0.0422804, -0.000214593, 0.00506896)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(0.00507346, 4.52163e-05, 0.0755855, 0.997126)
+bones/1/scale = Vector3(1, 1, 1)
 bones/2/rotation = Quaternion(0.941496, -0.0746829, 0.00408405, 0.328621)
+bones/2/scale = Vector3(1, 1, 1)
 bones/3/rotation = Quaternion(0.0242722, -0.000590559, -0.0671873, 0.997445)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(-0.0242722, -0.000590561, 0.0671873, 0.997445)
+bones/7/rotation = Quaternion(-0.0751552, 0.00249716, -0.0096869, 0.997122)
+bones/8/rotation = Quaternion(0.370481, -0.0123657, -0.0309824, 0.928241)
+bones/9/rotation = Quaternion(-0.404101, 0.0134878, -0.0305104, 0.914106)
 bones/10/rotation = Quaternion(-0.0124774, 5.69975e-05, -0.00885343, 0.999883)
 bones/11/rotation = Quaternion(0.883549, -0.0196712, -0.460687, 0.0819864)
-bones/12/rotation = Quaternion(-0.0123323, 4.43455e-09, -0.0197611, 0.999729)
+bones/11/scale = Vector3(1, 1, 1.00001)
+bones/12/rotation = Quaternion(-0.0123323, 4.4177e-09, -0.0197611, 0.999729)
+bones/13/rotation = Quaternion(-0.45624, -0.0201431, -0.336194, 0.823659)
 bones/14/rotation = Quaternion(0.882509, 0.0530494, -0.463832, -0.056779)
+bones/14/scale = Vector3(1, 1, 1.00001)
+bones/15/rotation = Quaternion(-0.00961861, 0.000215458, -0.0233964, 0.99968)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(-0.475744, 0.0216679, -0.308534, 0.823411)
+bones/16/scale = Vector3(1, 1, 1)
 
 [node name="Plane_001" parent="." index="1"]
 visible = false
@@ -102,8 +119,7 @@ material_override = SubResource("StandardMaterial3D_qy25e")
 material_override = SubResource("StandardMaterial3D_v1axw")
 
 [node name="Skeleton3D" parent="Armature_001" index="0"]
-bones/0/position = Vector3(0, -2.40854, 0)
-bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, 1.05879e-22, 1)
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -1.05879e-22, 1)
 
 [node name="door" parent="Armature_001/Skeleton3D" index="0"]
 material_override = SubResource("StandardMaterial3D_6v1ck")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://hltquxhlln31"]
+[gd_scene load_steps=8 format=3 uid="uid://hltquxhlln31"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2ye2i"]
 [ext_resource type="PackedScene" uid="uid://dyuw5uq7ncnvo" path="res://presets/player/player.tscn" id="1_mjp8q"]
 [ext_resource type="PackedScene" uid="uid://cm1rxdsmg3cpe" path="res://presets/enemys/enemy_1/enemy_1.tscn" id="3_v3a4q"]
+[ext_resource type="AudioStream" uid="uid://chn7cncvkmgmf" path="res://presets/music/Prigida-Polarity.mp3" id="4_13m23"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fak14"]
 
@@ -133,3 +134,7 @@ skeleton = NodePath("../../StaticBody3D3")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(1.39259, 0, 0, 0, 7.45428, 0, 0, 0, 10.1782, -51.9045, -0.481927, 7.76182)
 mesh = SubResource("BoxMesh_fak14")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_13m23")
+autoplay = true

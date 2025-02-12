@@ -90,6 +90,7 @@ func _input(event: InputEvent) -> void:
 			shoot()
 		
 func shoot() -> void:
+	$whist.play()
 	var camera = get_viewport().get_camera_3d()
 	var direction = -camera.global_transform.basis.z  # Ось Z камеры указывает вперед
 	var bullet = bullet_scene.instantiate()

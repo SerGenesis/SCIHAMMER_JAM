@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dyuw5uq7ncnvo"]
+[gd_scene load_steps=8 format=3 uid="uid://dyuw5uq7ncnvo"]
 
 [ext_resource type="Script" path="res://presets/player/player.gd" id="1_gwqw8"]
+[ext_resource type="AudioStream" uid="uid://6dg35tsorbn" path="res://presets/player/run.mp3" id="2_1kicu"]
+[ext_resource type="AudioStream" uid="uid://b82gr3beewo0n" path="res://presets/player/whist.mp3" id="3_2hsmc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_813b2"]
 
@@ -58,5 +60,11 @@ autoplay = "room_anim-start"
 speed_scale = 1000.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="run" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_1kicu")
+
+[node name="whist" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_2hsmc")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

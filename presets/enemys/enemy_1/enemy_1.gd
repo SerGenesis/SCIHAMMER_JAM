@@ -42,23 +42,30 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func die():
+	collision_layer = 12
 	anim.play("dead")
+	$run.stop()
+	$drop.play()
 	current_state = STATE.DIE
+	
 
 func start():
 	anim.play("run")
 	anim.speed_scale = 3
+	$run.play()
+	
 
 func target_position(target):
 	nav_agent.target_position = target
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	$CPUParticles3D.global_position = body.global_position
-	$CPUParticles3D.emitting = true
-	body.queue_free()
 	if current_state != STATE.DIE:
 		take_damage()
+		$CPUParticles3D.global_position = body.global_position
+		$CPUParticles3D.emitting = true
+		body.queue_free()
+		$damage.play()
 		
 func take_damage():
 	hp -= 1
@@ -72,11 +79,17 @@ func _on_damage_area_body_entered(body: Node3D) -> void:
 		player_in_damage = true
 		current_state = STATE.ATTACK
 		anim.play("hit")
+		$run.stop()
+		$kia.play()
 		await get_tree().create_timer(0.5).timeout
 		if player_in_damage:
 			body.get_damage()
+			$hit.play()
+		else:
+			$miss.play()
 		current_state = STATE.RUN
 		anim.play("run")
+		$run.play()
 	
 		
 		

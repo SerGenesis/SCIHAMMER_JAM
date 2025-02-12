@@ -1,10 +1,11 @@
 extends CharacterBody3D
 class_name Enemy
-
-@onready var anim = $enemy_1/AnimationPlayer
+@onready var damage_area :Area3D=$DamageArea
+@onready var anim:AnimationPlayer = $enemy_1/AnimationPlayer
 @onready var nav_agent :NavigationAgent3D= $NavigationAgent3D
 var gravity = 18
 var gravity_scale = 1
+var hp = 3
 
 
 enum STATE {
@@ -15,12 +16,18 @@ enum STATE {
 var speed = 5
 var player : CharacterBody3D
 var navigation : NavigationRegion3D
+var player_in_damage :bool=false
 
 var current_state = STATE.RUN
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.connect("enemy_start_signal", start )
-
+	
+func _process(delta: float) -> void:
+	if Globals.is_dash:
+		damage_area.collision_mask = 1
+	else:
+		damage_area.collision_mask = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -36,6 +43,7 @@ func _physics_process(delta: float) -> void:
 
 func die():
 	anim.play("dead")
+	current_state = STATE.DIE
 
 func start():
 	anim.play("run")
@@ -46,7 +54,34 @@ func target_position(target):
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
+	$CPUParticles3D.global_position = body.global_position
+	$CPUParticles3D.emitting = true
+	body.queue_free()
 	if current_state != STATE.DIE:
-		body.queue_free()
-		die()
+		take_damage()
+		
+func take_damage():
+	hp -= 1
+	if hp <= 0:
 		current_state = STATE.DIE
+		die()
+
+
+func _on_damage_area_body_entered(body: Node3D) -> void:
+	if body is Player and current_state == STATE.RUN:
+		player_in_damage = true
+		current_state = STATE.ATTACK
+		anim.play("hit")
+		await get_tree().create_timer(0.5).timeout
+		if player_in_damage:
+			body.get_damage()
+		current_state = STATE.RUN
+		anim.play("run")
+	
+		
+		
+
+
+func _on_damage_area_body_exited(body: Node3D) -> void:
+	if body is Player:
+		player_in_damage = false

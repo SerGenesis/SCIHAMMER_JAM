@@ -1,9 +1,8 @@
 extends CharacterBody3D
+class_name Player
 
-
-const SPEED = 10.0
+var SPEED = 10.0
 const JUMP_VELOCITY = 10.0
-
 
 var mouse_sensitivity :float = 0.1
 var yaw: float = 0.0
@@ -11,6 +10,8 @@ var pitch: float = 0.0
 var gravity_scale = 1
 var is_jumping = false
 var shoot_position :Vector3= Vector3(0, 1.3, -1.5)
+var can_dash = true
+var is_dash = false
 
 @onready var anim :AnimationPlayer= $AnimationPlayer
 @onready var is_playble :bool= false
@@ -44,6 +45,7 @@ func _physics_process(delta: float) -> void:
 	
 func _process(delta: float) -> void:
 	Globals.player_pos = self.position
+
 func check_wall_run():
 	if right_wall_cast.is_colliding() and Input.is_action_pressed("right"):
 		if is_jumping == false:
@@ -60,6 +62,17 @@ func check_wall_run():
 
 	
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed('rkm') and can_dash:
+		can_dash = false
+		is_dash = true
+		Globals.dash()
+		SPEED = 40
+		await get_tree().create_timer(0.5).timeout
+		SPEED = 10
+		is_dash = false
+		await get_tree().create_timer(2).timeout
+		can_dash = true
+		
 	check_wall_run()
 	if Globals.is_playble:
 		if Input.is_action_just_pressed("jump") and (is_on_floor() or is_on_wall()):
@@ -89,3 +102,9 @@ func shoot() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "room_anim-start":
 		Globals.is_playble = true
+	
+func get_damage():
+	if is_dash:
+		print('dash')
+	else:
+		print('take_damage')

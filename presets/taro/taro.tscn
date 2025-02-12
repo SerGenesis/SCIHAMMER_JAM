@@ -23,5 +23,3 @@ gravity_scale = 0.0
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(-8.61704e-09, 0, -0.134467, 0, 0.0292016, 0, 0.197135, 0, -5.87774e-09, 0, 0, 0)
 shape = SubResource("BoxShape3D_aspyt")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

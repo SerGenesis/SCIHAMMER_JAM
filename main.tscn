@@ -83,6 +83,8 @@ shape = SubResource("ConcavePolygonShape3D_bxw6n")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="."]
 transform = Transform3D(19.0964, 0, 0, 0, 1, 0, 0, 0, 2.01609, -47.6928, 0, 4.13363)
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
 transform = Transform3D(4.04044, 0, 0, 0, 1, 0, 0, 0, 7.0293, -0.00417995, -0.481925, -0.000762463)

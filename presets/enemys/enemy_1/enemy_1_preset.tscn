@@ -19,5 +19,25 @@ normal_texture = ExtResource("5_f3soo")
 
 [node name="enemy_1" instance=ExtResource("1_an1c2")]
 
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-0.106074, 0.37104, 1.20587e-07)
+bones/0/rotation = Quaternion(0.999093, 0.0422804, -0.000214593, 0.00506896)
+bones/1/position = Vector3(-1.75339e-08, 0.447936, -1.82935e-10)
+bones/1/rotation = Quaternion(0.00503057, 0.000659553, -0.045777, 0.998939)
+bones/2/position = Vector3(-0.194218, 0.659524, 0.40751)
+bones/2/rotation = Quaternion(0.951123, -0.233728, -0.18985, 0.0685069)
+bones/3/rotation = Quaternion(-0.168903, 0.0953711, -0.563388, 0.8031)
+bones/5/position = Vector3(-0.0420781, 0.683937, -0.456147)
+bones/5/rotation = Quaternion(0.877583, 0.421659, -0.171126, -0.150889)
+bones/6/rotation = Quaternion(-0.254579, -0.133959, -0.307806, 0.906918)
+bones/7/rotation = Quaternion(-0.0751552, 0.00249715, -0.00968689, 0.997122)
+bones/10/position = Vector3(0.07374, 1.10341, 0.00484745)
+bones/10/rotation = Quaternion(-0.0124774, 5.69977e-05, -0.00885343, 0.999883)
+bones/11/rotation = Quaternion(0.825024, 0.321337, -0.390336, 0.252419)
+bones/12/rotation = Quaternion(0.306858, -0.0641887, 0.200847, 0.928105)
+bones/14/position = Vector3(-0.143681, -0.038314, -0.242071)
+bones/14/rotation = Quaternion(0.883787, 0.0138513, -0.461258, -0.0772652)
+bones/15/rotation = Quaternion(0.170121, 0.0341082, 0.102576, 0.979476)
+
 [node name="Cube_001" parent="Armature/Skeleton3D" index="0"]
 material_override = SubResource("StandardMaterial3D_5ox73")

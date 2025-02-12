@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm1rxdsmg3cpe"]
+[gd_scene load_steps=8 format=3 uid="uid://cm1rxdsmg3cpe"]
 
 [ext_resource type="PackedScene" uid="uid://bdl4cndr0nr13" path="res://presets/enemys/enemy_1/enemy_1_preset.tscn" id="1_1rork"]
 [ext_resource type="Script" path="res://presets/enemys/enemy_1/enemy_1.gd" id="2_6wtdc"]
@@ -8,6 +8,17 @@ data = PackedVector3Array(0.1131, 2.7253, 0, 0.19, 2.6323, 0.0441, 0.1091, 2.719
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kc7b3"]
 size = Vector3(1, 2.43457, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_45xee"]
+size = Vector3(2.05884, 2.95557, 1.68262)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7l1n"]
+albedo_color = Color(1, 0.788235, 0, 1)
+emission_enabled = true
+emission = Color(0.921569, 0.882353, 0.545098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0hlsg"]
+size = Vector3(0.04, 0.04, 0.04)
 
 [node name="Enemy1" type="CharacterBody3D"]
 script = ExtResource("2_6wtdc")
@@ -26,4 +37,33 @@ shape = SubResource("ConcavePolygonShape3D_ib3sy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28341, 0)
 shape = SubResource("BoxShape3D_kc7b3")
 
+[node name="DamageArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036499, 0.977783, -1.4221)
+shape = SubResource("BoxShape3D_45xee")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_d7l1n")
+emitting = false
+amount = 20
+lifetime = 0.26
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.78
+mesh = SubResource("BoxMesh_0hlsg")
+spread = 115.15
+gravity = Vector3(0, -60, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 4.0
+linear_accel_max = 32.32
+radial_accel_min = -12.45
+radial_accel_max = 84.52
+angle_min = -165.0
+angle_max = 90.0
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="body_exited" from="DamageArea" to="." method="_on_damage_area_body_exited"]

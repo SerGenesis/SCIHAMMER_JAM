@@ -1,0 +1,51 @@
+[gd_scene load_steps=16 format=3 uid="uid://cfgdl53tvb01h"]
+
+[ext_resource type="PackedScene" uid="uid://dro80ppjxcy6n" path="res://presets/house/house_1.glb" id="1_td2yb"]
+[ext_resource type="Texture2D" uid="uid://26hu67bc21ob" path="res://presets/house/box.001_BaseColor.png" id="2_11le1"]
+[ext_resource type="Texture2D" uid="uid://b48ecu07ptpyn" path="res://presets/house/box.001_Metallic.png" id="3_la2k0"]
+[ext_resource type="Texture2D" uid="uid://csq7ky2b14tul" path="res://presets/house/box.001_Normal.png" id="4_57a8h"]
+[ext_resource type="Texture2D" uid="uid://b7xi5ohvju4iw" path="res://presets/house/box.001_Roughness.png" id="5_f55gf"]
+[ext_resource type="Texture2D" uid="uid://trgbdl6teip8" path="res://presets/house/window_2_Emission.png" id="6_b865y"]
+[ext_resource type="Texture2D" uid="uid://cl3x0jbbgnto7" path="res://presets/house/window_1_Emission.png" id="7_t5t3x"]
+[ext_resource type="Texture2D" uid="uid://cgukj2xluavrh" path="res://presets/house/window_metal_BaseColor.png" id="8_1ft06"]
+[ext_resource type="Texture2D" uid="uid://cyopg0u2kktng" path="res://presets/house/window_metal_Metallic.png" id="9_7734v"]
+[ext_resource type="Texture2D" uid="uid://bp0fwvwl04p2o" path="res://presets/house/window_metal_Normal.png" id="10_vle2l"]
+[ext_resource type="Texture2D" uid="uid://b2vqcieqv2snx" path="res://presets/house/window_metal_Roughness.png" id="11_b5rby"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4im1b"]
+albedo_texture = ExtResource("2_11le1")
+metallic = 1.0
+metallic_texture = ExtResource("3_la2k0")
+roughness_texture = ExtResource("5_f55gf")
+normal_enabled = true
+normal_texture = ExtResource("4_57a8h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3jx5"]
+emission_enabled = true
+emission_texture = ExtResource("6_b865y")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paxdx"]
+emission_enabled = true
+emission_texture = ExtResource("7_t5t3x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46ejp"]
+albedo_texture = ExtResource("8_1ft06")
+metallic = 1.0
+metallic_texture = ExtResource("9_7734v")
+roughness_texture = ExtResource("11_b5rby")
+normal_enabled = true
+normal_texture = ExtResource("10_vle2l")
+
+[node name="pre_house" instance=ExtResource("1_td2yb")]
+
+[node name="Plane_004" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_4im1b")
+
+[node name="Plane_006" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_a3jx5")
+
+[node name="Plane_007" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_paxdx")
+
+[node name="Plane_008" parent="." index="3"]
+material_override = SubResource("StandardMaterial3D_46ejp")

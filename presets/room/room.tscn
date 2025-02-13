@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bua36wsst8pad"]
+[gd_scene load_steps=17 format=3 uid="uid://bua36wsst8pad"]
 
 [ext_resource type="PackedScene" uid="uid://bbgq6u2ehyi0j" path="res://presets/room/room_preset.tscn" id="2_5gj2i"]
 [ext_resource type="PackedScene" uid="uid://dyuw5uq7ncnvo" path="res://presets/player/player.tscn" id="2_is17h"]
 [ext_resource type="PackedScene" uid="uid://cm1rxdsmg3cpe" path="res://presets/enemys/enemy_1/enemy_1.tscn" id="3_rdwms"]
+[ext_resource type="PackedScene" uid="uid://l8g8mypt657j" path="res://presets/house/padik.tscn" id="4_w67g2"]
+[ext_resource type="PackedScene" uid="uid://cvgbfh2cqhlbs" path="res://presets/house/house.tscn" id="5_o57f2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4mer"]
 size = Vector3(2.20453, 1.30957, 2.23755)
@@ -34,8 +36,6 @@ size = Vector3(1, 4.21582, 0.851074)
 [sub_resource type="NavigationMesh" id="NavigationMesh_seb75"]
 vertices = PackedVector3Array(-85.7717, 0.518073, -2.45222, -85.7717, 0.518073, 10.7978, -9.5217, 0.518073, 10.7978, -9.5217, 0.518073, -2.45222)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
-
-[sub_resource type="BoxMesh" id="BoxMesh_32lql"]
 
 [sub_resource type="Environment" id="Environment_i4xrf"]
 ambient_light_color = Color(0.184314, 0, 0.298039, 1)
@@ -106,8 +106,48 @@ spot_angle = 48.5876
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -0.278053, 3.88499, 8.62079)
 light_color = Color(1, 0.733333, 1, 1)
 
+[node name="SpotLight3D4" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -0.278053, 3.88499, 13.6642)
+light_color = Color(1, 0.733333, 1, 1)
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 11.1854, 3.88499, 13.6642)
+light_color = Color(1, 0.733333, 1, 1)
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 20.5866, 3.88499, 13.6642)
+light_color = Color(1, 0.733333, 1, 1)
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 27.2715, 3.88499, 13.6642)
+light_color = Color(1, 0.733333, 1, 1)
+
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49998, 1.51221)
+light_color = Color(1, 1, 0.713726, 1)
+light_energy = 3.365
+light_specular = 0.09
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.144777, 3.58143, 13.9191)
+light_color = Color(1, 1, 0.713726, 1)
+light_energy = 3.365
+light_specular = 0.09
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1885, 3.58143, 13.9191)
+light_color = Color(1, 1, 0.713726, 1)
+light_energy = 3.365
+light_specular = 0.09
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7926, 3.58143, 13.9191)
+light_color = Color(1, 1, 0.713726, 1)
+light_energy = 3.365
+light_specular = 0.09
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8799, 3.58143, 13.9191)
 light_color = Color(1, 1, 0.713726, 1)
 light_energy = 3.365
 light_specular = 0.09
@@ -123,10 +163,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.922)
 transform = Transform3D(-1.41832e-08, 0, 0.32248, 0, 1, 0, -0.324473, 0, -1.4096e-08, -1.2482, -0.0370986, -12.6263)
 navigation_mesh = SubResource("NavigationMesh_seb75")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D"]
-transform = Transform3D(77.1578, 0, 0, 0, 1, 0, 0, 0, 14.1717, -47.6928, -0.481927, 4.13363)
-mesh = SubResource("BoxMesh_32lql")
-skeleton = NodePath("../../StaticBody3D3")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i4xrf")
+
+[node name="padik" parent="." instance=ExtResource("4_w67g2")]
+
+[node name="house" parent="." instance=ExtResource("5_o57f2")]
+
+[node name="LightmapGI" type="LightmapGI" parent="."]

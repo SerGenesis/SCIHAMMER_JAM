@@ -1,0 +1,20 @@
+[gd_scene load_steps=7 format=3 uid="uid://ds2bify5s2hrt"]
+
+[ext_resource type="PackedScene" uid="uid://b5u138glvsykf" path="res://presets/house/padik.glb" id="1_bkdgq"]
+[ext_resource type="Texture2D" uid="uid://cojj1iarmwlt2" path="res://presets/house/box2_BaseColor.png" id="2_1mp7w"]
+[ext_resource type="Texture2D" uid="uid://inqxh1kxlp13" path="res://presets/house/box2_Metallic.png" id="3_waglo"]
+[ext_resource type="Texture2D" uid="uid://bl6cvb5ibq721" path="res://presets/house/box2_Normal.png" id="4_m7vi7"]
+[ext_resource type="Texture2D" uid="uid://drkxxnnvvuvnx" path="res://presets/house/box2_Roughness.png" id="5_a7a05"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0y18"]
+albedo_texture = ExtResource("2_1mp7w")
+metallic = 1.0
+metallic_texture = ExtResource("3_waglo")
+roughness_texture = ExtResource("5_a7a05")
+normal_enabled = true
+normal_texture = ExtResource("4_m7vi7")
+
+[node name="padik" instance=ExtResource("1_bkdgq")]
+
+[node name="Plane_002" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_m0y18")

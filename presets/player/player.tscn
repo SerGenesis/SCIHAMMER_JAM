@@ -57,6 +57,7 @@ libraries = {
 "": SubResource("AnimationLibrary_fa0vt")
 }
 autoplay = "room_anim-start"
+speed_scale = 1000.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

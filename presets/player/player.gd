@@ -108,4 +108,4 @@ func get_damage():
 	if is_dash:
 		print('dash')
 	else:
-		print('take_damage')
+		Globals.is_playble = false

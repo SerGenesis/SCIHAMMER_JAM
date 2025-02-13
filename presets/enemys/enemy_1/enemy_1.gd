@@ -23,6 +23,7 @@ var current_state = STATE.RUN
 func _ready() -> void:
 	Globals.connect("enemy_start_signal", start )
 	
+	
 func _process(delta: float) -> void:
 	if Globals.is_dash:
 		damage_area.collision_mask = 1

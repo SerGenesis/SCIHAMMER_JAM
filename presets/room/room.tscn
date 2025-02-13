@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bua36wsst8pad"]
+[gd_scene load_steps=16 format=3 uid="uid://bua36wsst8pad"]
 
 [ext_resource type="PackedScene" uid="uid://bbgq6u2ehyi0j" path="res://presets/room/room_preset.tscn" id="2_5gj2i"]
 [ext_resource type="PackedScene" uid="uid://dyuw5uq7ncnvo" path="res://presets/player/player.tscn" id="2_is17h"]
@@ -8,7 +8,7 @@
 size = Vector3(2.20453, 1.30957, 2.23755)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l1xvw"]
-size = Vector3(8.99438, 1.01367, 14.9772)
+size = Vector3(8.99438, 1.01367, 21.4696)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7jy42"]
 size = Vector3(1, 4.52289, 6.79028)
@@ -31,6 +31,17 @@ size = Vector3(1.68311, 4.58313, 8.24854)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yr3cr"]
 size = Vector3(1, 4.21582, 0.851074)
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_seb75"]
+vertices = PackedVector3Array(-85.7717, 0.518073, -2.45222, -85.7717, 0.518073, 10.7978, -9.5217, 0.518073, 10.7978, -9.5217, 0.518073, -2.45222)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="BoxMesh" id="BoxMesh_32lql"]
+
+[sub_resource type="Environment" id="Environment_i4xrf"]
+ambient_light_color = Color(0.184314, 0, 0.298039, 1)
+fog_enabled = true
+fog_light_color = Color(0.268086, 0.000648706, 0.658187, 1)
+
 [node name="room" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -40,7 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44449, 0.566374, -0.618774
 shape = SubResource("BoxShape3D_x4mer")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05896, -0.572113, 4.45978)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05896, -0.572113, 7.70596)
 shape = SubResource("BoxShape3D_l1xvw")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="StaticBody3D"]
@@ -84,6 +95,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.375
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -0.278053, 3.88499, 0.183197)
+light_color = Color(1, 0.768627, 0.811765, 1)
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
 transform = Transform3D(2.98023e-08, 0, 1, -1, 0, 2.98023e-08, 0, -1, 0, -2.00329, 1.83118, -0.5856)
@@ -92,9 +104,11 @@ spot_angle = 48.5876
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -0.278053, 3.88499, 8.62079)
+light_color = Color(1, 0.733333, 1, 1)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49998, 1.51221)
+light_color = Color(1, 1, 0.713726, 1)
 light_energy = 3.365
 light_specular = 0.09
 
@@ -102,3 +116,17 @@ light_specular = 0.09
 
 [node name="enemy_1" parent="room" instance=ExtResource("3_rdwms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.922)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="room/enemy_1"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(-1.41832e-08, 0, 0.32248, 0, 1, 0, -0.324473, 0, -1.4096e-08, -1.2482, -0.0370986, -12.6263)
+navigation_mesh = SubResource("NavigationMesh_seb75")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(77.1578, 0, 0, 0, 1, 0, 0, 0, 14.1717, -47.6928, -0.481927, 4.13363)
+mesh = SubResource("BoxMesh_32lql")
+skeleton = NodePath("../../StaticBody3D3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i4xrf")

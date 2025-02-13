@@ -124,6 +124,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.396, 0.812709, -0.820522)
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemy4"]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0998993, 0.0709839, 0.0231285)
 navigation_mesh = SubResource("NavigationMesh_rv8d0")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D"]

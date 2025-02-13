@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bua36wsst8pad"]
+[gd_scene load_steps=18 format=3 uid="uid://bua36wsst8pad"]
 
 [ext_resource type="PackedScene" uid="uid://bbgq6u2ehyi0j" path="res://presets/room/room_preset.tscn" id="2_5gj2i"]
 [ext_resource type="PackedScene" uid="uid://dyuw5uq7ncnvo" path="res://presets/player/player.tscn" id="2_is17h"]
 [ext_resource type="PackedScene" uid="uid://cm1rxdsmg3cpe" path="res://presets/enemys/enemy_1/enemy_1.tscn" id="3_rdwms"]
 [ext_resource type="PackedScene" uid="uid://l8g8mypt657j" path="res://presets/house/padik.tscn" id="4_w67g2"]
 [ext_resource type="PackedScene" uid="uid://cvgbfh2cqhlbs" path="res://presets/house/house.tscn" id="5_o57f2"]
+[ext_resource type="LightmapGIData" uid="uid://r6x7qgvgmlse" path="res://presets/room/room.lmbake" id="6_xhpse"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4mer"]
 size = Vector3(2.20453, 1.30957, 2.23755)
@@ -122,6 +123,13 @@ light_color = Color(1, 0.733333, 1, 1)
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 27.2715, 3.88499, 13.6642)
 light_color = Color(1, 0.733333, 1, 1)
 
+[node name="SpotLight3D8" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 27.2715, 13.8641, -6.48604)
+light_energy = 1000.0
+light_indirect_energy = 16.0
+spot_range = 18.2288
+spot_angle = 35.7051
+
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49998, 1.51221)
 light_color = Color(1, 1, 0.713726, 1)
@@ -170,4 +178,8 @@ environment = SubResource("Environment_i4xrf")
 
 [node name="house" parent="." instance=ExtResource("5_o57f2")]
 
+[node name="house2" parent="." instance=ExtResource("5_o57f2")]
+transform = Transform3D(1.92128, 0, 0, 0, 0.00653952, 0, 0, 0, 3.90757, 0, -10.4279, -28.6568)
+
 [node name="LightmapGI" type="LightmapGI" parent="."]
+light_data = ExtResource("6_xhpse")

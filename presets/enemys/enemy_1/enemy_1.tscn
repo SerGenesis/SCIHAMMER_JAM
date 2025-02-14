@@ -72,21 +72,27 @@ scale_amount_max = 2.0
 
 [node name="run" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_5y21l")
+volume_db = -20.0
 
 [node name="damage" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_a63c6")
+volume_db = -20.0
 
 [node name="kia" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_j2fum")
+volume_db = -20.0
 
 [node name="drop" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_bkig1")
+volume_db = -20.0
 
 [node name="miss" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_bd1mi")
+volume_db = -20.0
 
 [node name="hit" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("7_ujbyy")
+volume_db = -20.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

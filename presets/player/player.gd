@@ -5,19 +5,21 @@ var SPEED = 10.0
 const JUMP_VELOCITY = 10.0
 
 var mouse_sensitivity :float = 0.1
-var yaw: float = 0.0
+var yaw: float= 0.0
 var pitch: float = 0.0
-var gravity_scale = 1
-var is_jumping = false
+var gravity_scale := 1
+var is_jumping := false
 var shoot_position :Vector3= Vector3(0, 1.3, -1.5)
-var can_dash = true
-var is_dash = false
+var can_dash := true
+var is_dash := false
+var can_shoot := true
 
 @onready var anim :AnimationPlayer= $AnimationPlayer
 @onready var is_playble :bool= false
 @onready var right_wall_cast: RayCast3D = $"RightWallСast"
 @onready var left_wall_cast: RayCast3D = $LeftWallCast
 @onready var taro_start : = $TaroStart
+@onready var hand: AnimationPlayer = $Camera3D/hand/AnimationPlayer2
 var bullet_scene :PackedScene= preload("res://presets/taro/taro.tscn")
 
 @onready var camera : Camera3D = $Camera3D
@@ -26,7 +28,10 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	await get_tree().create_timer(0.05).timeout
 	if Globals.room_start == true:
+		$Camera3D/hand.hide()
 		anim.play("room_anim-start")
+		await anim.animation_finished
+		$Camera3D/hand.show()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -90,14 +95,20 @@ func _input(event: InputEvent) -> void:
 			shoot()
 		
 func shoot() -> void:
-	$whist.play()
-	var camera = get_viewport().get_camera_3d()
-	var direction = -camera.global_transform.basis.z  # Ось Z камеры указывает вперед
-	var bullet = bullet_scene.instantiate()
-	bullet.position = global_transform.origin + Vector3.UP * 1.5
-	bullet.direction = direction
-	bullet.rotation = camera.global_rotation
-	get_parent().add_child(bullet)
+	if can_shoot:
+		$whist.play()
+		hand.play("shoot")
+		hand.speed_scale = 4
+		var camera = get_viewport().get_camera_3d()
+		var direction = -camera.global_transform.basis.z  # Ось Z камеры указывает вперед
+		var bullet = bullet_scene.instantiate()
+		bullet.position = global_transform.origin + Vector3.UP * 1.5
+		bullet.direction = direction
+		bullet.rotation = camera.global_rotation
+		get_parent().add_child(bullet)
+		can_shoot = false
+		await get_tree().create_timer(0.2).timeout
+		can_shoot = true
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

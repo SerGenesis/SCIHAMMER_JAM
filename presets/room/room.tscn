@@ -1,11 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://bua36wsst8pad"]
+[gd_scene load_steps=26 format=4 uid="uid://bua36wsst8pad"]
 
 [ext_resource type="PackedScene" uid="uid://bbgq6u2ehyi0j" path="res://presets/room/room_preset.tscn" id="2_5gj2i"]
 [ext_resource type="PackedScene" uid="uid://dyuw5uq7ncnvo" path="res://presets/player/player.tscn" id="2_is17h"]
 [ext_resource type="PackedScene" uid="uid://cm1rxdsmg3cpe" path="res://presets/enemys/enemy_1/enemy_1.tscn" id="3_rdwms"]
+[ext_resource type="Texture2D" uid="uid://ci6t6jewlxsi4" path="res://presets/room/textures/door_BaseColor.png" id="4_tjku1"]
 [ext_resource type="PackedScene" uid="uid://l8g8mypt657j" path="res://presets/house/padik.tscn" id="4_w67g2"]
+[ext_resource type="Texture2D" uid="uid://cbdfx6q8lg7y4" path="res://presets/room/textures/door_Metallic.png" id="5_4huik"]
 [ext_resource type="PackedScene" uid="uid://cvgbfh2cqhlbs" path="res://presets/house/house.tscn" id="5_o57f2"]
+[ext_resource type="Texture2D" uid="uid://csgwtmisy4bm7" path="res://presets/room/textures/door_Normal.png" id="6_1owbw"]
 [ext_resource type="LightmapGIData" uid="uid://r6x7qgvgmlse" path="res://presets/room/room.lmbake" id="6_xhpse"]
+[ext_resource type="Texture2D" uid="uid://d01o20ceffxns" path="res://presets/room/textures/door_Roughness.png" id="7_tgtr3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x4mer"]
 size = Vector3(2.20453, 1.30957, 2.23755)
@@ -33,6 +37,46 @@ size = Vector3(1.68311, 4.58313, 8.24854)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yr3cr"]
 size = Vector3(1, 4.21582, 0.851074)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ev7t"]
+albedo_texture = ExtResource("4_tjku1")
+metallic = 1.0
+metallic_texture = ExtResource("5_4huik")
+roughness_texture = ExtResource("7_tgtr3")
+normal_enabled = true
+normal_texture = ExtResource("6_1owbw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofmaq"]
+resource_name = "door"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_olrsm"]
+resource_name = "room_Plane_010"
+_surfaces = [{
+"aabb": AABB(-1.02805, 0.0629013, 11.5575, 2.10129, 3.48597, 0.124141),
+"attribute_data": PackedByteArray("KrBaP1QhnT5NVn0/YD8VPkSQaz9UIZ0+Qq3iPlQhnT5MVn0/YKkOP948Zj9UIZ0+Qq3iPk1WfT/6HHc/TlZ9P948Zj9OVn0/KrBaP05WfT/7HHc/xfwTP0SQaz9OVn0/jmwqPFQhnT77HHc/YD8VPpXJcT9UIZ0+dgbYPlQhnT77HHc/YKkOP40DYD9UIZ0+dgbYPk1WfT9MVn0/TlZ9P40DYD9OVn0/jmwqPE1WfT9MVn0/xfwTP5XJcT9OVn0/"),
+"bone_aabbs": [AABB(-1.02805, 0.0629013, 11.5575, 2.10129, 3.48598, 0.124141)],
+"format": 34359745559,
+"index_count": 36,
+"index_data": PackedByteArray("EgAMAA8AEgAVAAwABgAAAAkABgADAAAABwAWABMABwAKABYABQAUABEABQAIABQACwAOABcACwACAA4AAQAQAA0AAQAEABAA"),
+"material": SubResource("StandardMaterial3D_ofmaq"),
+"name": "door",
+"primitive": 3,
+"skin_data": PackedByteArray("AAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAA"),
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("CJeDv8MgY0Bo6zhBCJeDv8MgY0Bo6zhBCJeDv8MgY0Bo6zhB+l+JP8MgY0Bo6zhB+l+JP8MgY0Bo6zhB+l+JP8MgY0Bo6zhB+l+JP2TSgD1o6zhB+l+JP2TSgD1o6zhB+l+JP2TSgD1o6zhBCJeDv2TSgD1o6zhBCJeDv2TSgD1o6zhBCJeDv2TSgD1o6zhBCJeDv8MgY0Dj5zpBCJeDv8MgY0Dj5zpBCJeDv8MgY0Dj5zpB+l+JP8MgY0Dj5zpB+l+JP8MgY0Dj5zpB+l+JP8MgY0Dj5zpB+l+JP2TSgD3j5zpB+l+JP2TSgD3j5zpB+l+JP2TSgD3j5zpBCJeDv2TSgD3j5zpBCJeDv2TSgD3j5zpBCJeDv2TSgD3j5zpB/////wAA/7//f////////wAA/3//f/+//////wAA/7//f////////////3///////////wAA/7//fwAA/3//v////3///////////wAA/7//fwAA/3//vwAA/3//f/+//3//f////7//f////////wAA/3//f/+//3//f////7//f////////////3///////3//f////7//fwAA/3//v////3///////3//f////7//fwAA/3//vwAA/3//f/+/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="Skin" id="Skin_acvqn"]
+resource_name = "Skin2"
+bind_count = 1
+bind/0/name = &"Bone_2"
+bind/0/bone = -1
+bind/0/pose = Transform3D(1, 0, -2.38419e-07, -2.84217e-14, 1, -1.19209e-07, 2.38419e-07, 0, 1, -0.0270663, -0.140335, -11.6816)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_seb75"]
 vertices = PackedVector3Array(-85.7717, 0.518073, -2.45222, -85.7717, 0.518073, 10.7978, -9.5217, 0.518073, 10.7978, -9.5217, 0.518073, -2.45222)
@@ -123,13 +167,6 @@ light_color = Color(1, 0.733333, 1, 1)
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 27.2715, 3.88499, 13.6642)
 light_color = Color(1, 0.733333, 1, 1)
 
-[node name="SpotLight3D8" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 27.2715, 13.8641, -6.48604)
-light_energy = 1000.0
-light_indirect_energy = 16.0
-spot_range = 18.2288
-spot_angle = 35.7051
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49998, 1.51221)
 light_color = Color(1, 1, 0.713726, 1)
@@ -138,26 +175,26 @@ light_specular = 0.09
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.144777, 3.58143, 13.9191)
-light_color = Color(1, 1, 0.713726, 1)
-light_energy = 3.365
+light_color = Color(1, 0.698039, 0.713726, 1)
+light_energy = 14.517
 light_specular = 0.09
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1885, 3.58143, 13.9191)
-light_color = Color(1, 1, 0.713726, 1)
-light_energy = 3.365
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1885, 2.47311, 13.9191)
+light_color = Color(1, 0.698039, 0.713726, 1)
+light_energy = 35.455
 light_specular = 0.09
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7926, 3.58143, 13.9191)
-light_color = Color(1, 1, 0.713726, 1)
-light_energy = 3.365
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7926, 2.58333, 13.9191)
+light_color = Color(1, 0.670588, 0.713726, 1)
+light_energy = 29.17
 light_specular = 0.09
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8799, 3.58143, 13.9191)
-light_color = Color(1, 1, 0.713726, 1)
-light_energy = 3.365
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8799, 2.17039, 13.9191)
+light_color = Color(1, 0.537255, 0.713726, 1)
+light_energy = 33.885
 light_specular = 0.09
 
 [node name="room" parent="." instance=ExtResource("2_5gj2i")]
@@ -166,6 +203,48 @@ light_specular = 0.09
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.922)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="room/enemy_1"]
+
+[node name="door" type="MeshInstance3D" parent="room"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.31646, 0, 23.3549)
+material_override = SubResource("StandardMaterial3D_2ev7t")
+mesh = SubResource("ArrayMesh_olrsm")
+skin = SubResource("Skin_acvqn")
+
+[node name="door2" type="MeshInstance3D" parent="room"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13.6864, 0, 23.3549)
+material_override = SubResource("StandardMaterial3D_2ev7t")
+mesh = SubResource("ArrayMesh_olrsm")
+skin = SubResource("Skin_acvqn")
+
+[node name="door3" type="MeshInstance3D" parent="room"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20.3416, 0, 23.3549)
+material_override = SubResource("StandardMaterial3D_2ev7t")
+mesh = SubResource("ArrayMesh_olrsm")
+skin = SubResource("Skin_acvqn")
+
+[node name="door4" type="MeshInstance3D" parent="room"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 27.5558, 0, 23.3549)
+material_override = SubResource("StandardMaterial3D_2ev7t")
+mesh = SubResource("ArrayMesh_olrsm")
+skin = SubResource("Skin_acvqn")
+
+[node name="door5" type="MeshInstance3D" parent="room"]
+transform = Transform3D(1, 0, -1.78814e-07, 0, 1, 0, 1.78814e-07, 0, 1, 27.6337, 0, 4.61495)
+material_override = SubResource("StandardMaterial3D_2ev7t")
+mesh = SubResource("ArrayMesh_olrsm")
+skin = SubResource("Skin_acvqn")
+
+[node name="door7" type="MeshInstance3D" parent="room"]
+transform = Transform3D(1, 0, -1.78814e-07, 0, 1, 0, 1.78814e-07, 0, 1, 13.6085, 0, 4.61495)
+material_override = SubResource("StandardMaterial3D_2ev7t")
+mesh = SubResource("ArrayMesh_olrsm")
+skin = SubResource("Skin_acvqn")
+
+[node name="door8" type="MeshInstance3D" parent="room"]
+transform = Transform3D(1, 0, -1.78814e-07, 0, 1, 0, 1.78814e-07, 0, 1, 6.39433, 0, 4.61495)
+material_override = SubResource("StandardMaterial3D_2ev7t")
+mesh = SubResource("ArrayMesh_olrsm")
+skin = SubResource("Skin_acvqn")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(-1.41832e-08, 0, 0.32248, 0, 1, 0, -0.324473, 0, -1.4096e-08, -1.2482, -0.0370986, -12.6263)
